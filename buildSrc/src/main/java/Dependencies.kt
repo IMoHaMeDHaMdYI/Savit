@@ -1,7 +1,7 @@
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import java.net.URI
 
-const val kotlinVersion = "1.4.10"
+const val kotlinVersion = "1.4.21"
 
 fun RepositoryHandler.addRepos() {
     this.google()
@@ -96,7 +96,7 @@ object Version {
     const val gson = "2.8.6"
     const val leakcanary = "2.1"
     const val robolectric = "4.2"
-    const val room = "2.2.3"
+    const val room = "2.2.6"
     const val timber = "4.7.1"
     const val work = "2.5.0-beta01"
     const val viewpager2 = "1.0.0"
@@ -242,7 +242,7 @@ object Dependencies {
 
     const val roomRuntime = "androidx.room:room-runtime:${Version.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
-    const val roomRxjava2 = "androidx.room:room-rxjava2:${Version.room}"
+    const val roomExt = "androidx.room:room-ktx:${Version.room}"
 
     const val timber = "com.jakewharton.timber:timber:${Version.timber}"
 
