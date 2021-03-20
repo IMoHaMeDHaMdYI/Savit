@@ -9,10 +9,4 @@ data class DBCategory(
     val id: Long,
     val name: String,
     val icon: String // url or path
-){
-
-
-    fun a (){
-        DBAC
-    }
-}
+)

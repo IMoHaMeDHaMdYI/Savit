@@ -1,7 +1,7 @@
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import java.net.URI
 
-const val kotlinVersion = "1.4.21"
+const val kotlinVersion = "1.4.31"
 
 fun RepositoryHandler.addRepos() {
     this.google()
@@ -80,7 +80,7 @@ object Version {
     const val coreUtils = "1.0.0"
     const val gmsVersion = "17.0.0"
     const val coroutines = "1.3.3"
-    const val dagger = "2.27"
+    const val dagger = "2.33"
 
     const val daggerAssistedInject = "0.5.2"
     const val espresso = "3.2.0"
