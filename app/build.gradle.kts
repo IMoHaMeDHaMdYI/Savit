@@ -14,6 +14,9 @@ android {
             keyPassword = "123123"
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
     buildToolsVersion("30.0.2")
     compileSdkVersion(30)
 

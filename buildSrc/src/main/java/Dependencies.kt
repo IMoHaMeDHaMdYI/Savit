@@ -68,8 +68,7 @@ object Version {
     const val junit = "4.13"
     const val jetpack = "1.0.0-beta01"
     const val constraintLayout = "2.0.0-beta4"
-    const val ktx = "1.1.0-alpha05"
-    const val activity = "1.1.0"
+    const val ktx = "1.3.2"
     const val annotations = "1.0.0"
     const val apache_commons = "2.5"
     const val appcompat = "1.2.0"
@@ -84,7 +83,8 @@ object Version {
 
     const val daggerAssistedInject = "0.5.2"
     const val espresso = "3.2.0"
-    const val fragment = "1.2.2"
+    const val fragment = "1.3.0-alpha07"
+    const val activity = "1.2.0-alpha07"
     const val glide = "4.11.0"
     const val kotlin = "1.3.70"
     const val lifecycle = "2.2.0"
@@ -101,7 +101,7 @@ object Version {
     const val work = "2.5.0-beta01"
     const val viewpager2 = "1.0.0"
     const val crashlytics = "17.1.1"
-    const val navigation = "2.3.0"
+    const val navigation = "2.3.2"
     const val supportAnnotation = "28.0.0"
     const val testRunner = "1.0.2"
     const val dynamicAnimationKtx = "1.0.0-alpha03"
@@ -206,6 +206,8 @@ object Dependencies {
 
     const val lifecycleJava8 = "androidx.lifecycle:lifecycle-common-java8:${Version.lifecycle}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Version.lifecycle}"
+    const val lifecycle =
+        "androidx.lifecycle:lifecycle-extensions:${Version.lifecycle}"
     const val lifecycleViewmodelKtx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
     const val lifecycleLivedataKtx =

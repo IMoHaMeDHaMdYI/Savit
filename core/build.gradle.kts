@@ -15,6 +15,9 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
     buildToolsVersion("30.0.3")
     compileSdkVersion(30)
 
@@ -34,6 +37,11 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation(Dependencies.lifecycle)
+    implementation(Dependencies.fragmentRuntimeKtx)
+    implementation(Dependencies.activityActivityKtx)
+    implementation(Dependencies.navigationFragmentKtx)
+    implementation(Dependencies.navigationUiKtx)
 
     implementation(Dependencies.daggerRuntime)
     kapt(Dependencies.daggerCompiler)
