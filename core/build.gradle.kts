@@ -15,6 +15,16 @@ android {
         }
     }
 
+    defaultConfig {
+        applicationId = "com.savit"
+        minSdkVersion(24)
+        targetSdkVersion(30)
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner =  "androidx.test.runner.AndroidJUnitRunner"
+    }
+
     buildFeatures {
         viewBinding = true
     }
@@ -45,6 +55,9 @@ dependencies {
 
     implementation(Dependencies.daggerRuntime)
     kapt(Dependencies.daggerCompiler)
+
+    implementation(Dependencies.glideRuntime)
+    kapt(Dependencies.glideRuntime)
 
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
