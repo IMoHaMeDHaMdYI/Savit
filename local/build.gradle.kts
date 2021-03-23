@@ -36,6 +36,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 
     implementation(Dependencies.daggerRuntime)
+    kapt(Dependencies.daggerCompiler)
 
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
