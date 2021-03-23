@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Savit">
-        <activity android:name=".MainActivity">
+        <activity android:name=".dashboard.presentation.view.SavitActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,5 +23,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

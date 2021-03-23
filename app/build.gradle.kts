@@ -55,6 +55,8 @@ android {
 dependencies {
     implementation(project(":local"))
     implementation(project(":module-injection"))
+    implementation(project(":core"))
+    implementation(project(":Dashboard"))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)

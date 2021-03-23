@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Setting "elegantTextHeight" = true flag turns off the "font compacting" optimization.
+    reference https://stackoverflow.com/questions/31821866/android-textview-what-does-eleganttextheight-do-api-21 -->
+    <style name="TextAppearance.Savit.Button" parent="TextAppearance.MaterialComponents.Button">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Button.Outline">
+
+    </style>
+
+    <style name="TextAppearance.Savit.H5" parent="TextAppearance.MaterialComponents.Headline5">
+
+    </style>
+
+    <style name="TextAppearance.Savit.H6" parent="TextAppearance.MaterialComponents.Headline6">
+
+    </style>
+
+    <style name="TextAppearance.Savit.H7" parent="TextAppearance.Savit.H6">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Subtitle1.Regular">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Subtitle2.Regular">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Subtitle1.Bold">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Subtitle2.Bold">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Caption" parent="TextAppearance.MaterialComponents.Caption">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Caption.Bold">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Caption.SemiBold">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Overline" parent="TextAppearance.MaterialComponents.Overline">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Overline.Small">
+
+    </style>
+
+    <style name="TextAppearance.Savit.Overline.SemiBold">
+
+    </style>
+
+</resources>

@@ -16,7 +16,6 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.savit"
         minSdkVersion(24)
         targetSdkVersion(30)
         versionCode = 1

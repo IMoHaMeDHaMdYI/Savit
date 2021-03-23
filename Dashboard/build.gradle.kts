@@ -16,7 +16,6 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.savit"
         minSdkVersion(24)
         targetSdkVersion(30)
         versionCode = 1
@@ -41,6 +40,9 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":core"))
+    implementation(project(":local"))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)

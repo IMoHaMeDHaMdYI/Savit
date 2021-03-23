@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color>
+    <color name="off_white">#f5f4fb</color>
+    <color name="black">#000000</color>
+    <color name="gray">#929497</color>
+    <color name="dark_gray">#B3231F20</color>
+    <color name="red">#e74c3c</color>
+    <color name="gold">#f1c40f</color>
+    <color name="light_blue">#01c6dc</color>
+    <color name="brand_blue">#007DC6</color>
+    <color name="brand_navy_blue">#00122C</color>
+    <color name="brand_green">#00aa48</color>
+
+    <!-- TODO improve and make them come from gray -->
+    <color name="shimmer_title">#e6e6e6</color>
+    <color name="shimmer_subtitle">#f4f4f4</color>
+
+</resources>

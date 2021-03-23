@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Savit" parent="Theme.Savit.Light" />
+
+    <style name="Theme.Savit.Light" parent="Base.Theme.Savit">
+        <item name="colorPrimary">@color/brand_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/brand_blue</item>
+        <item name="colorSecondary">@color/brand_navy_blue</item>
+        <item name="colorAccent">@color/brand_blue</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="android:colorBackground">@color/off_white</item>
+
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/gray</item>
+        <item name="android:textColorTertiary">@color/dark_gray</item>
+
+    </style>
+
+    <style name="Base.Theme.Savit" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Savit.BottomSheetDialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Savit.MaterialAlertDialog</item>
+    </style>
+
+    <style name="ThemeOverlay.Savit.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <!-- Setting "elegantTextHeight" = true flag turns off the "font compacting" optimization.
+    reference https://stackoverflow.com/questions/31821866/android-textview-what-does-eleganttextheight-do-api-21 -->
+    <style name="ThemeOverlay.Savit.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:elegantTextHeight">true</item>
+    </style>
+
+</resources>
