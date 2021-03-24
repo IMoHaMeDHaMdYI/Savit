@@ -2,6 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/savit_nav_graph">
-
+    android:id="@+id/savit_nav_graph"
+    app:startDestination="@id/dashboardFragment">
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.savit.dashboard.presentation.view.DashboardFragment" />
 </navigation>

@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Savit" parent="Theme.Savit.Light" />
+    <style name="Base.Savit" parent="Base.Theme.MaterialThemeBuilder">
 
-    <style name="Theme.Savit.Light" parent="Base.Theme.Savit">
-        <item name="colorPrimary">@color/brand_blue</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/brand_blue</item>
-        <item name="colorSecondary">@color/brand_navy_blue</item>
-        <item name="colorAccent">@color/brand_blue</item>
-        <item name="colorSurface">@color/white</item>
-        <item name="android:colorBackground">@color/off_white</item>
+        <item name="colorPrimary">@color/midnightBluePrimaryLight</item>
+        <item name="colorOnPrimary">#ffffff</item>
+        <item name="colorSecondary">@color/colorSelectiveYellowLight</item>
+        <item name="colorAccent">@color/colorSelectiveYellowLight</item>
+        <item name="colorSurface">@color/offWhite</item>
+        <item name="android:colorBackground">@color/offWhite</item>
+        <item name="android:textColorTertiary">@color/lightGreen</item>
 
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:textColorSecondary">@color/gray</item>
-        <item name="android:textColorTertiary">@color/dark_gray</item>
-
-    </style>
-
-    <style name="Base.Theme.Savit" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Savit.BottomSheetDialog</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.Savit.MaterialAlertDialog</item>
+        <item name="colorSecondaryVariant">@color/colorSelectiveYellowVariant</item>
+        <item name="colorPrimaryVariant">@color/midnightBluePrimaryVariant</item>
+        <item name="colorPrimaryDark">@color/midnightBluePrimaryVariant</item>
+
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Savit.H5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Savit.H6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Savit.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Savit.Subtitle2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Savit.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Savit.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Savit.Overline</item>
+    </style>
+
+    <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">
+            ?android:attr/colorBackground
+        </item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            ?attr/colorControlHighlight
+        </item>
     </style>
 
     <style name="ThemeOverlay.Savit.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
@@ -28,6 +43,9 @@
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
+    <style name="Savit" parent="@style/Base.Savit">
+
+    </style>
     <!-- Setting "elegantTextHeight" = true flag turns off the "font compacting" optimization.
     reference https://stackoverflow.com/questions/31821866/android-textview-what-does-eleganttextheight-do-api-21 -->
     <style name="ThemeOverlay.Savit.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">

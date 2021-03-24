@@ -9,7 +9,7 @@ import com.savit.dashboard.di.DaggerDashboardComponent
 import com.savit.dashboard.di.DashboardComponent
 
 class SavitActivity : BaseActivity<ActivitySavitBinding>() {
-    override val theme: Int = R.style.Theme_Savit
+    override val theme: Int = R.style.Savit
     override val graph: Int = R.navigation.savit_nav_graph
     override val navHostId: Int = R.id.savitNavHost
 

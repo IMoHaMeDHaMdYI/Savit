@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accounts">Accounts</string>
+    <string name="list_of_accounts">List of Accounts</string>
+    <string name="add_account">Add Account</string>
+</resources>

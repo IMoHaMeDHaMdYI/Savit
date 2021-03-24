@@ -1,3 +1,8 @@
 package com.savit.dashboard.presentation.model
 
-data class AccountUiModel(val name: String, val amount: Double)
+data class AccountUiModel(
+    val id: Int,
+    val name: String,
+    val amount: String,
+    val isSelected: Boolean
+)
