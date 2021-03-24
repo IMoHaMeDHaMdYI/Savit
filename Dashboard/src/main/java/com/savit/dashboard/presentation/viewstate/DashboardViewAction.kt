@@ -8,5 +8,5 @@ sealed class DashboardViewAction : ViewAction {
 
     object AddRecord : DashboardViewAction()
 
-    data class OpenRecord(val recordId: Long) : DashboardViewAction()
+    data class OpenRecord(val recordId: Int) : DashboardViewAction()
 }

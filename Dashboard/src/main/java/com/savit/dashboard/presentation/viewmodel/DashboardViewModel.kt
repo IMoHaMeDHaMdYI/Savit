@@ -19,10 +19,10 @@ class DashboardViewModel :
     override fun postAction(viewAction: DashboardViewAction) {
         when (viewAction) {
             DashboardViewAction.AddRecord -> {
-
+                updateViewEvent(DashboardViewEvent.AddRecord)
             }
             is DashboardViewAction.OpenRecord -> {
-
+                updateViewEvent(DashboardViewEvent.OpenRecord(recordId = viewAction.recordId))
             }
             is DashboardViewAction.SelectAccount -> {
                 currentViewState().accounts.map {
