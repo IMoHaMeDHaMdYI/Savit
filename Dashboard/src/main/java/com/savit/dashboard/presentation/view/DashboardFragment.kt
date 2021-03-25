@@ -13,6 +13,7 @@ import com.savit.dashboard.databinding.FragmentDashboardBinding
 import com.savit.dashboard.di.DaggerDashboardComponent
 import com.savit.dashboard.di.DashboardComponent
 import com.savit.dashboard.presentation.view.adapter.AccountsAdapter
+import com.savit.dashboard.presentation.view.adapter.RecordsAdapter
 import com.savit.dashboard.presentation.viewmodel.DashboardViewModel
 import com.savit.dashboard.presentation.viewstate.DashboardViewAction
 import com.savit.dashboard.presentation.viewstate.DashboardViewEvent
@@ -48,14 +49,17 @@ class DashboardFragment : BaseFragment<
     private val accountsAdapter = AccountsAdapter {
         postAction(DashboardViewAction.SelectAccount(it))
     }
+    private val recordsAdapter = RecordsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.accountsRV.adapter = accountsAdapter
+        binding.recordRecyclerView.adapter = recordsAdapter
     }
 
     override fun renderViewState(viewState: DashboardViewState) {
         accountsAdapter.submitList(viewState.accounts)
+        recordsAdapter.submitList(viewState.records)
     }
 
     override fun renderViewEvent(viewEvent: DashboardViewEvent) {
