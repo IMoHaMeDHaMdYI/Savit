@@ -21,7 +21,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner =  "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
@@ -43,6 +43,7 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":local"))
+    implementation(project(":account"))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)
@@ -64,6 +65,7 @@ dependencies {
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
     implementation(Dependencies.roomExt)
+//    implementation(Dependencies.roomCoroutines)
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

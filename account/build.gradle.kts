@@ -15,6 +15,18 @@ android {
         }
     }
 
+    defaultConfig {
+        minSdkVersion(24)
+        targetSdkVersion(30)
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner =  "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
     buildToolsVersion("30.0.3")
     compileSdkVersion(30)
 
@@ -29,19 +41,29 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":local"))
+
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation(Dependencies.lifecycle)
+    implementation(Dependencies.fragmentRuntimeKtx)
+    implementation(Dependencies.activityActivityKtx)
+    implementation(Dependencies.navigationFragmentKtx)
+    implementation(Dependencies.navigationUiKtx)
 
     implementation(Dependencies.daggerRuntime)
     kapt(Dependencies.daggerCompiler)
 
+    implementation(Dependencies.glideRuntime)
+    kapt(Dependencies.glideRuntime)
+
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
     implementation(Dependencies.roomExt)
-//    implementation(Dependencies.roomCoroutines)
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
