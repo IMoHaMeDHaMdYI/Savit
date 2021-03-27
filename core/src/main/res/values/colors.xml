@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="midnightBluePrimaryLight">#000045</color>
+    <color name="midnightBluePrimaryDark">#4f47a0</color>
+    <color name="midnightBluePrimaryVariant">#1a1f71</color>
+
+    <color name="colorSelectiveYellowLight">#bf8700</color>
+    <color name="colorSelectiveYellowDark">#ffe84c</color>
+    <color name="colorSelectiveYellowVariant">#f7b600</color>
+
+    <color name="colorCaribbeanGreenLight">#00a371</color>
+    <color name="colorCaribbeanGreenDark">#00a371</color>
+    <color name="colorCaribbeanGreenVariant">#06d6a0</color>
+
+    <color name="offWhite">#fafafa</color>
+    <color name="offBlack">#050505</color>
+    <color name="red">#B00020</color>
+    <color name="pink">#CF6679</color>
+    <color name="lightGreen">#00B020</color>
+    <color name="offGreen">#66CF79</color>
+
+</resources>

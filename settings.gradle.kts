@@ -1,3 +1,4 @@
+include(":Dashboard")
 include(":core")
 include(":module-injection")
 include(":local")

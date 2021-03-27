@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":local"))
+
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)
     implementation("androidx.appcompat:appcompat:1.2.0")
