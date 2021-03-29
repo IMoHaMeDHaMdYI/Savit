@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/savitNavHost"
+    android:name="com.savit.dashboard.presentation.view.DashboardNavHostFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/savit_nav_graph"
+    tools:ignore="FragmentTagUsage">
+
+</fragment>
