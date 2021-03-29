@@ -4,9 +4,12 @@ import com.savit.core.base.viewstate.ViewAction
 
 sealed class AddAccountViewAction : ViewAction {
 
-    data class AddAccount(val name: String, val amount: String) : AddAccountViewAction()
+    object AddAccount : AddAccountViewAction()
 
     object Cancel : AddAccountViewAction()
     object Back : AddAccountViewAction()
+
+    data class UpdateName(val value: String) : AddAccountViewAction()
+    data class UpdateAmount(val value: String) : AddAccountViewAction()
 
 }

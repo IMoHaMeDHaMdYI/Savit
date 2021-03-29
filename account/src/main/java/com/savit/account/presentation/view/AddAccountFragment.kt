@@ -1,10 +1,11 @@
 package com.savit.account.presentation.view
 
-import android.content.DialogInterface
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.ViewModel
+import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.savit.account.R
 import com.savit.account.databinding.FragmentAddAccountBinding
@@ -16,7 +17,7 @@ import com.savit.core.base.view.BaseFragment
 import com.savit.core.extension.viewModelWithProvider
 import javax.inject.Inject
 
-class AddAccountFragment @Inject constructor() :
+class AddAccountFragment @Inject constructor(val factory: AddAccountViewModel.Factory) :
     BaseFragment<
             AddAccountViewState,
             AddAccountViewEvent,
@@ -24,8 +25,6 @@ class AddAccountFragment @Inject constructor() :
             AddAccountViewModel,
             FragmentAddAccountBinding>() {
 
-    @Inject
-    lateinit var factory: AddAccountViewModel.Factory
     override val viewModel: AddAccountViewModel by viewModelWithProvider {
         factory.create()
     }
@@ -39,7 +38,29 @@ class AddAccountFragment @Inject constructor() :
         return FragmentAddAccountBinding.inflate(inflater, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.accountEditText.doOnTextChanged { text, _, _, _ ->
+            postAction(AddAccountViewAction.UpdateName(text.toString()))
+        }
+        binding.amountEditText.doOnTextChanged { text, _, _, _ ->
+            postAction(AddAccountViewAction.UpdateAmount(text.toString()))
+        }
+        binding.backImageView.postClickAction(AddAccountViewAction.Cancel)
+        binding.doneImageView.postClickAction(AddAccountViewAction.AddAccount)
+    }
+
     override fun renderViewState(viewState: AddAccountViewState) {
+        binding.amountEditText.error = if (viewState.showAmountMissing) {
+            "Enter the amount."
+        } else {
+            null
+        }
+        binding.accountEditText.error = if (viewState.showNameMissing) {
+            "Enter the name."
+        } else {
+            null
+        }
     }
 
     override fun renderViewEvent(viewEvent: AddAccountViewEvent) {

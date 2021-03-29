@@ -44,6 +44,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":local"))
     implementation(project(":account"))
+    implementation(project(":record"))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)
