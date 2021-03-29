@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_record">Add Record</string>
+    <string name="egp">EGP</string>
+    <string name="negative_egp">- EGP</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="amount_hint">100</string>
+    <string name="account">Account</string>
+    <string name="category">Category</string>
+</resources>

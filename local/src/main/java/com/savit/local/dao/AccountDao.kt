@@ -1,8 +1,8 @@
 package com.savit.local.dao
 
-import androidx.room.Dao
-import androidx.room.Query
+import androidx.room.*
 import com.savit.local.model.DBAccount
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface AccountDao {
@@ -17,7 +17,16 @@ interface AccountDao {
     @Query("SELECT * FROM accounts where id=:id")
     suspend fun getAccountById(id: Long): List<DBAccount>
 
-    @Query("SELECT * FROM accounts LIMIT :limit OFFSET :offset ")
-    suspend fun getAccounts(offset: Int, limit: Int): List<DBAccount>
+    @Query("SELECT * FROM accounts")
+    fun getAccounts(): Flow<List<DBAccount>>
+
+    @Insert
+    suspend fun addAccount(account: DBAccount)
+
+    @Delete
+    suspend fun deleteAccount(account: DBAccount)
+
+    @Update
+    suspend fun updateAccount(account: DBAccount)
 }
 

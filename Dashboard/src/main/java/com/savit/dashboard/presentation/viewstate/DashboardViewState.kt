@@ -6,5 +6,7 @@ import com.savit.dashboard.presentation.model.RecordUiModel
 
 data class DashboardViewState(
     val accounts: List<AccountUiModel>,
-    val records: List<RecordUiModel>
+    val records: List<RecordUiModel>,
+    val isAccountsEmpty: Boolean,
+    val isRecordsEmpty: Boolean
 ) : ViewState

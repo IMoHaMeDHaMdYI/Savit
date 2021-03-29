@@ -243,6 +243,7 @@ object Dependencies {
     const val robolectric = "org.robolectric:robolectric:${Version.robolectric}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Version.room}"
+    const val roomCoroutines = "androidx.room:room-coroutines:${Version.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
     const val roomExt = "androidx.room:room-ktx:${Version.room}"
 

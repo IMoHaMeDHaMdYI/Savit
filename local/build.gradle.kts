@@ -41,6 +41,7 @@ dependencies {
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
     implementation(Dependencies.roomExt)
+//    implementation(Dependencies.roomCoroutines)
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

@@ -10,6 +10,10 @@
     <style name="TextAppearance.Savit.Button.Outline">
     </style>
 
+    <style name="TextAppearance.Savit.H4" parent="TextAppearance.MaterialComponents.Headline4">
+
+    </style>
+
     <style name="TextAppearance.Savit.H5" parent="TextAppearance.MaterialComponents.Headline5">
 
     </style>
