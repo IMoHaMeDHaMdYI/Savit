@@ -80,4 +80,8 @@ abstract class BaseFragment<
         super.onDestroyView()
         _binding = null
     }
+
+    fun navigateActivity(id: Int) {
+        (requireActivity() as MainNavigator).navigateAccountsList(id)
+    }
 }

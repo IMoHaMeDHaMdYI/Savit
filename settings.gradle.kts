@@ -1,3 +1,4 @@
+include(":category")
 include(":record")
 include(":account")
 include(":Dashboard")

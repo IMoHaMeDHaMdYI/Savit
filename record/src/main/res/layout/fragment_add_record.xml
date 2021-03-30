@@ -50,19 +50,18 @@
             tools:ignore="ContentDescription" />
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="?actionBarSize"
             app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/incomeTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/income" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/expenseTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/expense" />
@@ -74,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="@string/negative_egp"
+        android:text="@string/egp"
         android:textAppearance="@style/TextAppearance.Savit.H4"
         android:textColor="?colorOnSurface"
         app:layout_constraintBottom_toBottomOf="@id/amountEditText"
@@ -132,7 +131,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/amountTextView"
+                android:id="@+id/accountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

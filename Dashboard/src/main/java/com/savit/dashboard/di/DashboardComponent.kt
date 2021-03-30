@@ -8,11 +8,12 @@ import com.savit.dashboard.presentation.view.DashboardFragment
 import com.savit.dashboard.presentation.view.DashboardNavHostFragment
 import com.savit.dashboard.presentation.view.SavitActivity
 import com.savit.local.di.LocalModule
+import com.savit.record.di.RecordModule
 import dagger.Component
 
 @AppScope
 @Component(
-    modules = [AccountModule::class, FragmentModule::class],
+    modules = [AccountModule::class, FragmentModule::class, RecordModule::class],
     dependencies = [CoreComponent::class]
 )
 interface DashboardComponent {
