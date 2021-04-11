@@ -3,10 +3,13 @@ package com.savit.core.base.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.savit.core.base.viewstate.ViewAction
 import com.savit.core.base.viewstate.ViewEvent
 import com.savit.core.base.viewstate.ViewState
 import com.savit.core.event.Event
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<VS : ViewState, VE : ViewEvent, VA : ViewAction> : ViewModel() {
 
@@ -25,7 +28,9 @@ abstract class BaseViewModel<VS : ViewState, VE : ViewEvent, VA : ViewAction> : 
     }
 
     protected fun updateViewState(state: VS) {
-        _viewState.value = state
+        viewModelScope.launch(Dispatchers.Main) {
+            _viewState.value = state
+        }
     }
 
 

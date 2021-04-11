@@ -10,4 +10,19 @@
     <fragment
         android:id="@+id/addAccountFragment"
         android:name="com.savit.account.presentation.view.AddAccountFragment" />
+    <fragment
+        android:id="@+id/accountsListFragment"
+        android:name="com.savit.account.presentation.view.AccountsListFragment" />
+
+    <fragment
+        android:id="@+id/addRecordFragment"
+        android:name="com.savit.record.presentation.view.AddRecordFragment">
+        <argument
+            android:name="accountId"
+            app:argType="long" />
+        <argument
+            android:name="accountName"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

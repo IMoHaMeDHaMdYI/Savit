@@ -6,10 +6,11 @@ import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseActivity<VB : ViewBinding> :
-    AppCompatActivity() {
+    AppCompatActivity(), MainNavigator {
 
     lateinit var binding: VB
         private set
@@ -37,4 +38,8 @@ abstract class BaseActivity<VB : ViewBinding> :
         binding = onCreateBinding(layoutInflater)
         setContentView(binding.root)
     }
+}
+
+interface MainNavigator {
+    fun navigateAccountsList(id: Int)
 }

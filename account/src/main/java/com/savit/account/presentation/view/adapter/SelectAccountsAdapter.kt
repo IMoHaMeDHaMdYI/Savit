@@ -43,5 +43,4 @@ object AccountDiffUtil : DiffUtil.ItemCallback<SelectableAccountUiModel>() {
     ): Boolean {
         return newItem == oldItem
     }
-
 }
