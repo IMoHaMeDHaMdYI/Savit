@@ -6,7 +6,7 @@ sealed class DashboardViewEvent : ViewEvent {
 
     class OpenRecord(val recordId: Int) : DashboardViewEvent()
 
-    object AddRecord : DashboardViewEvent()
+    data class AddRecord(val accountName: String, val accountId: Long) : DashboardViewEvent()
 
     object AddAccount : DashboardViewEvent()
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.savit.account.R
 import com.savit.account.databinding.FragmentAccountsListBinding
 import com.savit.account.presentation.view.adapter.SelectAccountsAdapter
@@ -39,12 +40,14 @@ class AccountsListFragment @Inject constructor(provider: Provider<AccountListVie
         return FragmentAccountsListBinding.inflate(inflater, container, false)
     }
 
-    private val accountsAdapter = SelectAccountsAdapter {
-        postAction(AccountsListViewAction.Select(id = it))
-    }
+    private lateinit var accountsAdapter: SelectAccountsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        accountsAdapter = SelectAccountsAdapter {
+            postAction(AccountsListViewAction.Select(id = it))
+        }
+        binding.selectAccountRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.selectAccountRecyclerView.adapter = accountsAdapter
     }
 
@@ -56,7 +59,13 @@ class AccountsListFragment @Inject constructor(provider: Provider<AccountListVie
         when (viewEvent) {
             AccountsListViewEvent.Back -> requireActivity().onBackPressed()
             is AccountsListViewEvent.Done -> {
-                setFragmentResult("account", bundleOf("account" to viewEvent.account))
+                setFragmentResult(
+                    "account",
+                    bundleOf(
+                        "name" to viewEvent.account.name,
+                        "id" to viewEvent.account.id
+                    )
+                )
                 requireActivity().onBackPressed()
             }
         }

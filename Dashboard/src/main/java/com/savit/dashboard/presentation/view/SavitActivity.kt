@@ -1,6 +1,7 @@
 package com.savit.dashboard.presentation.view
 
 import android.view.LayoutInflater
+import androidx.navigation.findNavController
 import com.savit.core.base.view.BaseActivity
 import com.savit.core.di.provideCoreComponent
 import com.savit.core.di.scopedComponent
@@ -24,5 +25,9 @@ class SavitActivity : BaseActivity<ActivitySavitBinding>() {
 
     override fun onCreateBinding(inflater: LayoutInflater): ActivitySavitBinding {
         return ActivitySavitBinding.inflate(inflater)
+    }
+
+    override fun navigateAccountsList(id: Int) {
+        findNavController(navHostId).navigate(R.id.accountsListFragment)
     }
 }

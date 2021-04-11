@@ -16,6 +16,8 @@ import com.savit.dashboard.presentation.viewmodel.DashboardViewModel
 import com.savit.dashboard.presentation.viewstate.DashboardViewAction
 import com.savit.dashboard.presentation.viewstate.DashboardViewEvent
 import com.savit.dashboard.presentation.viewstate.DashboardViewState
+import com.savit.record.presentation.view.AddRecordFragment
+import com.savit.record.presentation.view.AddRecordFragmentArgs
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -49,6 +51,7 @@ class DashboardFragment @Inject constructor(viewModelProvider: Provider<Dashboar
         binding.accountsRV.adapter = accountsAdapter
         binding.recordRecyclerView.adapter = recordsAdapter
         binding.addAccountButton.postClickAction(DashboardViewAction.AddAccount)
+        binding.fabAddRecord.postClickAction(DashboardViewAction.AddRecord)
     }
 
     override fun renderViewState(viewState: DashboardViewState) {
@@ -60,7 +63,12 @@ class DashboardFragment @Inject constructor(viewModelProvider: Provider<Dashboar
 
     override fun renderViewEvent(viewEvent: DashboardViewEvent) {
         when (viewEvent) {
-            DashboardViewEvent.AddRecord -> {
+            is DashboardViewEvent.AddRecord -> {
+                val args = AddRecordFragmentArgs(
+                    accountName = viewEvent.accountName,
+                    accountId = viewEvent.accountId
+                )
+                findNavController().navigate(R.id.addRecordFragment, args.toBundle())
             }
             is DashboardViewEvent.OpenRecord -> {
 

@@ -3,6 +3,7 @@ plugins {
     kotlin(BuildPlugins.android)
     kotlin(BuildPlugins.androidExtension)
     kotlin(BuildPlugins.kapt)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -45,6 +46,7 @@ dependencies {
     implementation(project(":local"))
     implementation(project(":account"))
     implementation(project(":record"))
+    implementation(project(":category"))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)

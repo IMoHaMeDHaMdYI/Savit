@@ -8,11 +8,6 @@ import androidx.room.PrimaryKey
 data class DBRecord(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
-    @ForeignKey(
-        entity = DBCategory::class,
-        parentColumns = ["id"],
-        childColumns = ["category"]
-    )
     val category: Long,
     val amount: Double,
     @ForeignKey(
