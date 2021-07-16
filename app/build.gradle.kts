@@ -60,10 +60,13 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)
+    implementation(Dependencies.activityActivityKtx)
 
     implementation(Dependencies.daggerRuntime)
     kapt(Dependencies.daggerCompiler)
 
+    implementation(Dependencies.glideRuntime)
+    kapt(Dependencies.glideRuntime)
 //    implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
