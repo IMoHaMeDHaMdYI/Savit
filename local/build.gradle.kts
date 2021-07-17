@@ -38,9 +38,15 @@ dependencies {
     implementation(Dependencies.daggerRuntime)
     kapt(Dependencies.daggerCompiler)
 
-    implementation(Dependencies.roomRuntime)
+    api(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)
     implementation(Dependencies.roomExt)
+    implementation(Dependencies.roomRx)
+
+
+    implementation(Dependencies.rxJava)
+    implementation(Dependencies.rxAndroid)
+    implementation(Dependencies.rxKotlin)
 //    implementation(Dependencies.roomCoroutines)
 
     testImplementation("junit:junit:4.13.2")

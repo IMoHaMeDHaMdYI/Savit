@@ -7,5 +7,7 @@ sealed class AccountsListViewEvent : ViewEvent {
 
     data class Done(val account: Account) : AccountsListViewEvent()
 
+    object AddAccount : AccountsListViewEvent()
+
     object Back : AccountsListViewEvent()
 }

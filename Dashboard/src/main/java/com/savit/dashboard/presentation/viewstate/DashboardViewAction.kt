@@ -10,4 +10,6 @@ sealed class DashboardViewAction : ViewAction {
     object AddAccount : DashboardViewAction()
 
     data class OpenRecord(val recordId: Int) : DashboardViewAction()
+
+    object LoadNext : DashboardViewAction()
 }

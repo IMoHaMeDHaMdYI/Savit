@@ -40,6 +40,7 @@ class AccountListViewModel @Inject constructor(
                     )
                 }
             }
+            AccountsListViewAction.AddAccount -> updateViewEvent(AccountsListViewEvent.AddAccount)
         }
     }
 

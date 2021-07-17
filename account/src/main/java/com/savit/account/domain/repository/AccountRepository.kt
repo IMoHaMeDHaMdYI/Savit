@@ -10,5 +10,4 @@ interface AccountRepository {
     suspend fun addAccount(account: Account)
     suspend fun deleteAccount(account: Account)
     suspend fun updateAccount(account: Account)
-
 }

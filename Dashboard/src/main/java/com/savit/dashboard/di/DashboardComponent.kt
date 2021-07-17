@@ -7,7 +7,6 @@ import com.savit.dashboard.di.module.FragmentModule
 import com.savit.dashboard.presentation.view.DashboardFragment
 import com.savit.dashboard.presentation.view.DashboardNavHostFragment
 import com.savit.dashboard.presentation.view.SavitActivity
-import com.savit.local.di.LocalModule
 import com.savit.record.di.RecordModule
 import dagger.Component
 

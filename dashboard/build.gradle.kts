@@ -48,6 +48,7 @@ dependencies {
     implementation(project(":record"))
     implementation(project(":category"))
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
     implementation(Dependencies.coreCore)
     implementation("androidx.appcompat:appcompat:1.2.0")
@@ -62,8 +63,14 @@ dependencies {
     implementation(Dependencies.daggerRuntime)
     kapt(Dependencies.daggerCompiler)
 
+    implementation(Dependencies.timber)
+
     implementation(Dependencies.glideRuntime)
     kapt(Dependencies.glideRuntime)
+
+    implementation(Dependencies.rxJava)
+    implementation(Dependencies.rxAndroid)
+    implementation(Dependencies.rxKotlin)
 
     implementation(Dependencies.roomRuntime)
     kapt(Dependencies.roomCompiler)

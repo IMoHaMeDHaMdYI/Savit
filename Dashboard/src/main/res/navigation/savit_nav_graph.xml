@@ -16,13 +16,6 @@
 
     <fragment
         android:id="@+id/addRecordFragment"
-        android:name="com.savit.record.presentation.view.AddRecordFragment">
-        <argument
-            android:name="accountId"
-            app:argType="long" />
-        <argument
-            android:name="accountName"
-            app:argType="string" />
-    </fragment>
+        android:name="com.savit.record.presentation.view.AddRecordFragment" />
 
 </navigation>

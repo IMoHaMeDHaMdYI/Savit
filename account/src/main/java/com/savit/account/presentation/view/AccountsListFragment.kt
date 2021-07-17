@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.savit.account.R
 import com.savit.account.databinding.FragmentAccountsListBinding
@@ -40,15 +41,15 @@ class AccountsListFragment @Inject constructor(provider: Provider<AccountListVie
         return FragmentAccountsListBinding.inflate(inflater, container, false)
     }
 
-    private lateinit var accountsAdapter: SelectAccountsAdapter
+    private val accountsAdapter = SelectAccountsAdapter {
+        postAction(AccountsListViewAction.Select(id = it))
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        accountsAdapter = SelectAccountsAdapter {
-            postAction(AccountsListViewAction.Select(id = it))
-        }
         binding.selectAccountRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.selectAccountRecyclerView.adapter = accountsAdapter
+        binding.addAccountFab.postClickAction(AccountsListViewAction.AddAccount)
     }
 
     override fun renderViewState(viewState: AccountsListViewState) {
@@ -68,6 +69,7 @@ class AccountsListFragment @Inject constructor(provider: Provider<AccountListVie
                 )
                 requireActivity().onBackPressed()
             }
+            AccountsListViewEvent.AddAccount -> findNavController().navigate(R.id.addAccountFragment)
         }
     }
 }

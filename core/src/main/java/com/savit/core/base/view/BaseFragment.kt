@@ -16,6 +16,7 @@ import com.savit.core.extension.getThemeColor
 import com.savit.core.base.viewstate.ViewAction
 import com.savit.core.base.viewstate.ViewEvent
 import com.savit.core.base.viewstate.ViewState
+import com.savit.core.extension.hideKeyboard
 
 abstract class BaseFragment<
         VS : ViewState,
@@ -74,6 +75,11 @@ abstract class BaseFragment<
 
     fun View.postClickAction(action: () -> VA) {
         setOnClickListener { postAction(action.invoke()) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        hideKeyboard()
     }
 
     override fun onDestroyView() {

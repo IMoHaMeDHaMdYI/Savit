@@ -96,7 +96,7 @@ object Version {
     const val gson = "2.8.6"
     const val leakcanary = "2.1"
     const val robolectric = "4.2"
-    const val room = "2.2.6"
+    const val room = "2.3.0"
     const val timber = "4.7.1"
     const val work = "2.5.0-beta01"
     const val viewpager2 = "1.0.0"
@@ -105,6 +105,9 @@ object Version {
     const val supportAnnotation = "28.0.0"
     const val testRunner = "1.0.2"
     const val dynamicAnimationKtx = "1.0.0-alpha03"
+    const val rxjava = "3.0.13"
+    const val rxkotlin = "3.0.1"
+    const val rxandroid = "3.0.0"
 }
 
 object Dependencies {
@@ -245,6 +248,7 @@ object Dependencies {
     const val roomRuntime = "androidx.room:room-runtime:${Version.room}"
     const val roomCoroutines = "androidx.room:room-coroutines:${Version.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
+    const val roomRx = "androidx.room:room-rxjava3:${Version.room}"
     const val roomExt = "androidx.room:room-ktx:${Version.room}"
 
     const val timber = "com.jakewharton.timber:timber:${Version.timber}"
@@ -253,4 +257,8 @@ object Dependencies {
         "androidx.dynamicanimation:dynamicanimation-ktx:${Version.dynamicAnimationKtx}"
 
     const val work = "androidx.work:work-runtime-ktx:${Version.work}"
+
+    const val rxJava = "io.reactivex.rxjava3:rxjava:${Version.rxjava}"
+    const val rxKotlin = "io.reactivex.rxjava3:rxkotlin:${Version.rxkotlin}"
+    const val rxAndroid = "io.reactivex.rxjava3:rxandroid:${Version.rxandroid}"
 }
