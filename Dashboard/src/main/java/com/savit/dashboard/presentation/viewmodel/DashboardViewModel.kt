@@ -12,16 +12,24 @@ import com.savit.dashboard.presentation.viewstate.DashboardViewAction
 import com.savit.dashboard.presentation.viewstate.DashboardViewEvent
 import com.savit.dashboard.presentation.viewstate.DashboardViewState
 import com.savit.record.domain.usecase.GetRecordUseCase
-import kotlinx.coroutines.Dispatchers
+import com.savit.record.domain.usecase.GetRecordsAmountUseCase
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
+import java.util.concurrent.atomic.AtomicReference
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 import kotlin.random.Random
 
 class DashboardViewModel @Inject constructor(
     private val getAccountsUseCase: GetAccountsUseCase,
     private val accountPreviewUiMapper: AccountPreviewUiMapper,
-    private val getRecordsUseCase: GetRecordUseCase
+    private val getRecordsUseCase: GetRecordUseCase,
+    private val getRecordsAmountUseCase: GetRecordsAmountUseCase
 ) : BaseViewModel<DashboardViewState, DashboardViewEvent, DashboardViewAction>() {
 
     override val initViewState: DashboardViewState = DashboardViewState(
@@ -30,6 +38,8 @@ class DashboardViewModel @Inject constructor(
         isAccountsEmpty = true,
         isRecordsEmpty = true
     ).also(::updateViewState)
+
+    private val compositeDisposable = CompositeDisposable()
 
     override fun postAction(viewAction: DashboardViewAction) {
         when (viewAction) {
@@ -48,7 +58,10 @@ class DashboardViewModel @Inject constructor(
                         getRecords(it)
                         it.copy(isSelected = true)
                     }
-                }.also { updateViewState(currentViewState().copy(accounts = it)) }
+                }.also {
+                    accountsRef.set(it)
+                    updateViewState(currentViewState().copy(accounts = it))
+                }
             }
             DashboardViewAction.AddAccount -> updateViewEvent(DashboardViewEvent.AddAccount)
         }
@@ -81,21 +94,58 @@ class DashboardViewModel @Inject constructor(
             }
     }
 
+    var recordsAmountsJobs = SupervisorJob() + Dispatchers.IO
+    val recordsScope = CoroutineScope(recordsAmountsJobs)
+    val accountsRef = AtomicReference<List<AccountUiModel>>()
     private fun getAccounts() = viewModelScope.launch(Dispatchers.IO) {
         getAccountsUseCase().collect { accounts ->
-            launch(Dispatchers.Main) {
-                val selected = currentViewState().accounts.find { account -> account.isSelected }
-                val newAccounts =
-                    accountPreviewUiMapper.mapList(accounts).mapIndexed { index, account ->
+            recordsAmountsJobs.cancelChildren()
+            val selected =
+                currentViewState().accounts.find { account -> account.isSelected }
+            val newAccounts =
+                accountPreviewUiMapper.mapList(accounts)
+                    .mapIndexed { index, account ->
                         if ((selected == null && index == 0) || account.id == selected?.id) {
                             account.copy(isSelected = true)
                         } else {
                             account.copy(isSelected = false)
                         }
                     }
-                updateViewState(
-                    currentViewState().copy(accounts = newAccounts, isAccountsEmpty = false)
-                )
+            accountsRef.set(newAccounts)
+            recordsScope.launch(Dispatchers.Main) {
+                val observable = accounts.map { account ->
+                    getRecordsAmountUseCase.execute(accountId = account.id)
+                        .map {
+                            val newAccount = account.copy(remaining = account.amount + it)
+                            if(newAccount.remaining < newAccount.amount /2 ){
+                                updateViewEvent(DashboardViewEvent.ShowWarning)
+                            }
+                            accountsRef.set(accountsRef.get().map {
+                                if (it.id.toLong() == account.id) {
+                                    it.copy(remaining = newAccount.remaining)
+                                } else {
+                                    it
+                                }
+                            })
+                            newAccount
+                        }
+                }.let { Observable.merge(it) }
+                observable.subscribe { acc ->
+                    val selected =
+                        accountsRef.get().find { account -> account.isSelected }
+
+                    val newList = accountsRef.get()
+                        .mapIndexed { index, account ->
+                            if ((selected == null && index == 0) || account.id == selected?.id) {
+                                account.copy(isSelected = true)
+                            } else {
+                                account.copy(isSelected = false)
+                            }
+                        }
+                    updateViewState(
+                        currentViewState().copy(accounts = newList, isAccountsEmpty = false)
+                    )
+                }.also { compositeDisposable.add(it) }
             }
         }
     }

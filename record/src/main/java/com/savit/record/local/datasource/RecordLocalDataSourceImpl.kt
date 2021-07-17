@@ -4,8 +4,10 @@ import com.savit.local.dao.RecordDao
 import com.savit.record.data.datasource.RecordLocalDataSource
 import com.savit.record.data.model.RecordEntity
 import com.savit.record.local.mapper.RecordEntityMapper
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.util.*
 import javax.inject.Inject
 
 class RecordLocalDataSourceImpl @Inject constructor(
@@ -18,7 +20,12 @@ class RecordLocalDataSourceImpl @Inject constructor(
         }
     }
 
+
     override suspend fun addRecord(record: RecordEntity) {
         dao.addRecord(record = recordEntityMapper.reverse(record))
+    }
+
+    override fun getRecordAmount(accountId: Long): Observable<Int> {
+        return dao.getRecordAmount(accountId)
     }
 }

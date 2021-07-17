@@ -36,7 +36,15 @@ class AddRecordFragment @Inject constructor(viewModelFactory: AddRecordViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.amountEditText.doOnTextChanged { text, start, count, after ->
-            postAction(AddRecordViewAction.UpdateAmount(text.toString()))
+            if (binding.currencyTextView.text == getString(R.string.egp))
+                postAction(AddRecordViewAction.UpdateAmount(text.toString()))
+            else
+                postAction(
+                    AddRecordViewAction.UpdateAmount(
+                        (text.toString().toDouble() * -1).toString()
+                    )
+                )
+
         }
         binding.backImageView.postClickAction(AddRecordViewAction.Back)
         binding.doneImageView.postClickAction(AddRecordViewAction.Done)

@@ -15,11 +15,18 @@ interface RecordDao {
     @Query("SELECT * FROM records WHERE account = :accountId ORDER BY id DESC")
     fun getRecordsByAccount(accountId: Long): Flow<List<DBRecord>>
 
+    @Query("SELECT SUM(amount) FROM records WHERE account = :accountId")
+    fun getRecordAmount(accountId: Long): Observable<Int>
+
     @Query("SELECT * FROM records WHERE account = :accountId ORDER BY id DESC LIMIT :limit OFFSET :offset ")
     fun getRecordsPageByAccount(accountId: Long, offset: Int, limit: Int): Flow<List<DBRecord>>
 
     @Query("SELECT * FROM records WHERE account = :accountId ORDER BY id DESC LIMIT :limit OFFSET :offset ")
-    fun getRecordsPageByAccountObservable(accountId: Long, offset: Int, limit: Int): Observable<List<DBRecord>>
+    fun getRecordsPageByAccountObservable(
+        accountId: Long,
+        offset: Int,
+        limit: Int
+    ): Observable<List<DBRecord>>
 
     @Query("SELECT * FROM records WHERE id = :id")
     suspend fun getRecordById(id: Int): List<DBRecord>

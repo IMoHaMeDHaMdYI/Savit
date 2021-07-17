@@ -9,4 +9,6 @@ sealed class DashboardViewEvent : ViewEvent {
     data class AddRecord(val accountName: String, val accountId: Long) : DashboardViewEvent()
 
     object AddAccount : DashboardViewEvent()
+
+    object ShowWarning : DashboardViewEvent()
 }

@@ -11,7 +11,8 @@ class AccountPreviewUiMapper @Inject constructor() : Mapper<Account, AccountUiMo
             id = input.id.toInt(),
             name = input.name,
             amount = input.amount.toString(),
-            isSelected = false
+            isSelected = false,
+            remaining = input.remaining
         )
     }
 }

@@ -4,6 +4,7 @@ import com.savit.record.data.datasource.RecordLocalDataSource
 import com.savit.record.data.mapper.RecordMapper
 import com.savit.record.domain.model.Record
 import com.savit.record.domain.repsotory.RecordRepository
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -20,5 +21,9 @@ class RecordRepositoryImpl @Inject constructor(
 
     override suspend fun addRecord(record: Record) {
         dataSource.addRecord(mapper.reverse(record))
+    }
+
+    override fun getRecordAmount(accountId: Long): Observable<Int> {
+        return dataSource.getRecordAmount(accountId)
     }
 }

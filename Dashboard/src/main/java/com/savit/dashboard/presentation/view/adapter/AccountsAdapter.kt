@@ -29,7 +29,7 @@ class AccountsAdapter(val select: (Int) -> Unit) :
             binding.amountTextView.setTextColor(binding.root.context.getThemeColor(R.attr.colorSecondary))
         }
 
-        binding.amountTextView.text = item.amount
+        binding.amountTextView.text = item.remaining.toString()
         binding.titleTextView.text = item.name
         binding.card.setOnClickListener { select(item.id) }
     }

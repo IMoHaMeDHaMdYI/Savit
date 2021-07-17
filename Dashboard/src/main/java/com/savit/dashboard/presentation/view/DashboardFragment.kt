@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.savit.core.base.view.BaseFragment
@@ -16,7 +17,6 @@ import com.savit.dashboard.presentation.viewmodel.DashboardViewModel
 import com.savit.dashboard.presentation.viewstate.DashboardViewAction
 import com.savit.dashboard.presentation.viewstate.DashboardViewEvent
 import com.savit.dashboard.presentation.viewstate.DashboardViewState
-import com.savit.record.presentation.view.AddRecordFragment
 import com.savit.record.presentation.view.AddRecordFragmentArgs
 import javax.inject.Inject
 import javax.inject.Provider
@@ -74,7 +74,11 @@ class DashboardFragment @Inject constructor(viewModelProvider: Provider<Dashboar
 
             }
             DashboardViewEvent.AddAccount -> findNavController().navigate(R.id.addAccountFragment)
-
+            DashboardViewEvent.ShowWarning -> AlertDialog.Builder(requireContext())
+                .setTitle("Only half of the initial amount is remaining! be careful or be poor.")
+                .setPositiveButton("Roger that") { dialog, _ ->
+                    dialog.dismiss()
+                }.show()
         }
     }
 }
