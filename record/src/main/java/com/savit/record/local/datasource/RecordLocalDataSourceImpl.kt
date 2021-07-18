@@ -14,7 +14,7 @@ class RecordLocalDataSourceImpl @Inject constructor(
     private val dao: RecordDao,
     private val recordEntityMapper: RecordEntityMapper
 ) : RecordLocalDataSource {
-    override fun getRecords(accountId: Long): Flow<List<RecordEntity>> {
+    override fun getRecords(accountId: Long): Observable<List<RecordEntity>> {
         return dao.getRecordsByAccount(accountId = accountId).map {
             recordEntityMapper.mapList(it)
         }

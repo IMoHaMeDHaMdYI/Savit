@@ -13,7 +13,7 @@ class RecordRepositoryImpl @Inject constructor(
     private val dataSource: RecordLocalDataSource,
     private val mapper: RecordMapper
 ) : RecordRepository {
-    override fun getRecords(accountId: Long): Flow<List<Record>> {
+    override fun getRecords(accountId: Long): Observable<List<Record>> {
         return dataSource.getRecords(accountId).map {
             mapper.mapList(it)
         }

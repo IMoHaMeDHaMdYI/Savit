@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.flow.Flow
 
 interface RecordLocalDataSource {
-    fun getRecords(accountId: Long): Flow<List<RecordEntity>>
+    fun getRecords(accountId: Long): Observable<List<RecordEntity>>
     suspend fun addRecord(record: RecordEntity)
     fun getRecordAmount(accountId: Long): Observable<Int>
 }

@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface RecordDao {
 
     @Query("SELECT * FROM records WHERE account = :accountId ORDER BY id DESC")
-    fun getRecordsByAccount(accountId: Long): Flow<List<DBRecord>>
+    fun getRecordsByAccount(accountId: Long): Observable<List<DBRecord>>
 
     @Query("SELECT SUM(amount) FROM records WHERE account = :accountId")
     fun getRecordAmount(accountId: Long): Observable<Int>

@@ -56,7 +56,7 @@ class AddRecordFragment @Inject constructor(viewModelFactory: AddRecordViewModel
         binding.accountCard.postClickAction(AddRecordViewAction.OpenAccounts)
         binding.categoryCard.setOnClickListener {
             AlertDialog.Builder(requireContext())
-                .setItems( categories.map { it.name }.toTypedArray(),{a,b->
+                .setItems(categories.map { it.name }.toTypedArray(), { a, b ->
                     viewModel.setCategoryState(categories[b])
                 })
                 .setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
@@ -85,6 +85,8 @@ class AddRecordFragment @Inject constructor(viewModelFactory: AddRecordViewModel
 
         binding.tablayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
+                binding.amountEditText.setText("")
+                viewModel.postAction(AddRecordViewAction.UpdateAmount(""))
                 if (tab.text == getString(R.string.income)) {
                     binding.currencyTextView.text = getString(R.string.egp)
                 } else {
