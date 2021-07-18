@@ -2,7 +2,7 @@ package com.savit.record.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.savit.category.model.Category
-import com.savit.category.model.getCategory
+import com.savit.category.model.categories
 import com.savit.core.base.viewmodel.BaseViewModel
 import com.savit.record.domain.model.Record
 import com.savit.record.domain.usecase.AddRecordUseCase
@@ -23,7 +23,7 @@ class AddRecordViewModel @AssistedInject constructor(
     private var amount: Double? = null
 
     private var name: String = ""
-    private var category: Category? = getCategory(2)
+    var category: Category? = categories[0]
     private var account: Long = accountId
     private var accountName: String = accName
 
@@ -62,6 +62,11 @@ class AddRecordViewModel @AssistedInject constructor(
             is AddRecordViewAction.UpdateName -> name = viewAction.value
             AddRecordViewAction.OpenAccounts -> updateViewEvent(AddRecordViewEvent.OpenRecord)
         }
+    }
+
+    fun setCategoryState(cat: Category) {
+        category = cat
+        updateViewState(currentViewState().copy(categoryName = cat.name))
     }
 
     private fun isReady() = amount != null && category != null

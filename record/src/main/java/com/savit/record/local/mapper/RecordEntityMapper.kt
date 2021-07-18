@@ -1,8 +1,7 @@
 package com.savit.record.local.mapper
 
-import com.savit.category.model.getCategory
+import com.savit.category.model.categories
 import com.savit.core.mapper.BiMapper
-import com.savit.core.mapper.Mapper
 import com.savit.local.model.DBRecord
 import com.savit.record.data.model.RecordEntity
 import javax.inject.Inject
@@ -12,7 +11,7 @@ class RecordEntityMapper @Inject constructor() : BiMapper<DBRecord, RecordEntity
         return RecordEntity(
             id = input.id,
             name = input.notes,
-            category = getCategory(input.category),
+            category = categories.find { it.id == input.category }?: categories[0],
             accountId = input.account,
             amount = input.amount
         )

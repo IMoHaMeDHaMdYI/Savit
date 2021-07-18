@@ -4,10 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListAdapter
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayout
+import com.savit.category.model.categories
 import com.savit.core.base.view.BaseFragment
 import com.savit.core.extension.viewModelWithProvider
 import com.savit.record.R
@@ -49,6 +54,26 @@ class AddRecordFragment @Inject constructor(viewModelFactory: AddRecordViewModel
         binding.backImageView.postClickAction(AddRecordViewAction.Back)
         binding.doneImageView.postClickAction(AddRecordViewAction.Done)
         binding.accountCard.postClickAction(AddRecordViewAction.OpenAccounts)
+        binding.categoryCard.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setItems( categories.map { it.name }.toTypedArray(),{a,b->
+                    viewModel.setCategoryState(categories[b])
+                })
+                .setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        viewModel.setCategoryState(categories[position])
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                    }
+
+                }).show()
+        }
         parentFragmentManager.setFragmentResultListener(
             "account",
             viewLifecycleOwner
@@ -77,7 +102,7 @@ class AddRecordFragment @Inject constructor(viewModelFactory: AddRecordViewModel
     }
 
     override fun renderViewState(viewState: AddRecordViewState) {
-        binding.categoryTextView.text = "Shopping"
+        binding.categoryTextView.text = viewState.categoryName
         binding.accountTextView.text = viewState.accountName
     }
 
